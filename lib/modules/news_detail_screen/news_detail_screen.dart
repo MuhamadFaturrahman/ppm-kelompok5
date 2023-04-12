@@ -45,7 +45,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                 },
                 icon: const Icon(Icons.chevron_left_rounded),
               ),
-              const Text("News Detail")
+              const Text("News Detail Screen")
             ],
           ),
           Image.network(
