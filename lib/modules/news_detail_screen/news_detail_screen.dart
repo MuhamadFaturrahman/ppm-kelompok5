@@ -48,8 +48,12 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
               const Text("News Detail Screen")
             ],
           ),
-          Image.network(
-            "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+           AspectRatio(
+            aspectRatio: 16 / 9, // Ditambahkan aspectratio oleh Genta
+            child: Image.network(
+              "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(
             height: 10,
