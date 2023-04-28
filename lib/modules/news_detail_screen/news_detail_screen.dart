@@ -62,10 +62,13 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Headline News",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        "Headline News",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Row(
                       children: [
