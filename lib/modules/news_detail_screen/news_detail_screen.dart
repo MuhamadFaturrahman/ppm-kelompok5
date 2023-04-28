@@ -24,10 +24,81 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          widget.id,
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            likeCount++;
+            print(likeCount);
+          });
+        },
+        backgroundColor: Colors.red,
+        child: Icon(Icons.favorite),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
+                icon: const Icon(Icons.chevron_left_rounded),
+              ),
+              const Text("News Detail Screen")
+            ],
+          ),
+          AspectRatio(
+            aspectRatio: 16 / 9, // Ditambahkan aspectratio oleh Genta
+            child: Image.network(
+              "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Headline News",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 25,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(likeCount.toString())
+                      ],
+                    )
+                  ],
+                ),
+                const Text(
+                  "Source Image : Pexels.com",
+                  style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
+                ),
+                Text(
+                  desc,
+                  style: const TextStyle(fontSize: 10),
+                  textAlign: TextAlign.justify,
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
